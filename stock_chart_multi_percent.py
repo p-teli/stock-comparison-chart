@@ -28,17 +28,18 @@ def plot_percentage_change(tickers, years):
         total_change = pct_change.iloc[-1]
         total_changes[ticker] = total_change
 
+    # Print total % change for each stock BEFORE showing the chart
+    print("\nTotal Percentage Change over the period:")
+    for ticker, change in total_changes.items():
+        print(f"{ticker}: {change:.2f}%")
+
+    # Show the chart
     plt.title(f"Stock Percentage Change Over Last {years} Years")
     plt.xlabel("Date")
     plt.ylabel("Percentage Change (%)")
     plt.grid(True)
     plt.legend()
     plt.show()
-
-    # Print total % change for each stock
-    print("\nTotal Percentage Change over the period:")
-    for ticker, change in total_changes.items():
-        print(f"{ticker}: {change:.2f}%")
 
 # --- Main ---
 if __name__ == "__main__":
