@@ -19,13 +19,13 @@ def plot_percentage_change(tickers, years):
             continue
 
         # Calculate percentage change relative to first available closing price
-        start_price = data['Close'][0]
+        start_price = data['Close'].iloc[0]
         pct_change = ((data['Close'] - start_price) / start_price) * 100
 
         plt.plot(data.index, pct_change, label=ticker)
 
         # Total percentage change over the period
-        total_change = pct_change[-1]
+        total_change = pct_change.iloc[-1]
         total_changes[ticker] = total_change
 
     plt.title(f"Stock Percentage Change Over Last {years} Years")
